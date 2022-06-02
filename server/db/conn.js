@@ -1,9 +1,11 @@
 const { MongoClient } = require("mongodb");
-const DB = process.env.ATLAS_URI;
-const client = new MongoClient(DB, {
+const DB = process.env.ATLAS_URI ;
+const client = new MongoClient(DB,
+     {
     useNewUrlParser: true,
-    useUnifiedTopology,
-});
+    useUnifiedTopology: true,
+}
+);
 
 var _db;
 
@@ -18,5 +20,9 @@ module.exports = {
 
             return callback(err);
         });
+    },
+
+    getDB: function () {
+        return _db;
     },
 };
