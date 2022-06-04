@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-const PORT = process.env.PORT || 3000
+
  
 export default function Create() {
  const [form, setForm] = useState({
