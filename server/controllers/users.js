@@ -1,13 +1,10 @@
-const express = require("express");
+const router = require("express").Router();
 
-const recordRoutes = express.Router();
-
-const db = require("../db/conn");
-
+const db = require("../models");
 const ObjectId = require("mongodb").ObjectId;
 
-recordRoutes.route("/record").get(function(req, res) {
-    let db_connect = db.getDB("employees");
+router.route("/user").get(function(req, res) {
+    let db_connect = db.getDB("empolyees");
     db_connect
         .collection("records")
         .find({})
@@ -17,7 +14,7 @@ recordRoutes.route("/record").get(function(req, res) {
         });
 });
 
-recordRoutes.route("/record/:id").get(function(req, res) {
+router.route("/user/:id").get(function(req, res) {
     let db_connect = db.getDB();
     let myquery = {_id: ObjectId(req.params.id)};
     db_connect
@@ -28,7 +25,7 @@ recordRoutes.route("/record/:id").get(function(req, res) {
         });
 });
 
-recordRoutes.route("/record/add").post(function(req, response) {
+router.route("/user/add").post(function(req, response) {
     let db_connect = db.getDB();
     let myobj = {
         name: req.body.name,
@@ -41,7 +38,7 @@ recordRoutes.route("/record/add").post(function(req, response) {
     })
 })
 
-recordRoutes.route("/update/:id").post(function (req, response) {
+router.route("/update/:id").post(function (req, response) {
     let db_connect = db.getDB(); 
     let myquery = { _id: ObjectId( req.params.id )}; 
     let newvalues = {   
@@ -53,7 +50,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
      };
 });
     
-recordRoutes.route("/:id").delete((req, response) => {
+router.route("/:id").delete((req, response) => {
     let db_connect = db.getDB();
     let myquery = { _id: ObjectId( req.params.id )};
     db_connect.collection("records").deleteOne(myquery, function (err, obj) {
@@ -63,4 +60,4 @@ recordRoutes.route("/:id").delete((req, response) => {
     });
 });
     
-module.exports = recordRoutes;
+module.exports = router;
