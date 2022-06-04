@@ -27,7 +27,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`https://trujobz.herokuapp.com/user`);
+     const response = await fetch(`/user`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
