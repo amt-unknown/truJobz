@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     }
 )
 
-userSchema.virtual('posting',{
+userSchema.virtual('postings',{
     ref: "Posting", 
     localField: '_id', 
     foreignField: 'owner'
