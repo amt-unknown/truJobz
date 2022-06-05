@@ -11,8 +11,8 @@ function PostingList(){
  // This method fetches the records from the database.
     useEffect(() => {
         async function getPostings() {
-            const response = await fetch(`http://localhost:3000/posting`)
-            //  const response = await fetch(`/user/`);
+            // const response = await fetch(`http://localhost:3000/posting`)
+             const response = await fetch(`/posting/`);
 
         
             if (!response.ok) {
