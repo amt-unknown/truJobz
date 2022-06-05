@@ -12,7 +12,7 @@ function PostingList(){
     useEffect(() => {
         async function getPostings() {
             // const response = await fetch(`http://localhost:3000/posting`)
-             const response = await fetch(`/user`);
+             const response = await fetch(`/user/`);
 
         
             if (!response.ok) {
