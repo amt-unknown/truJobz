@@ -28,6 +28,16 @@ router.get("/:id",(req, res) => {
         })
 });
 
+router.get("/name/:name", (req, res) =>{
+    db.User.findOne({name: req.params.name})
+        .then(foundUser => {
+            res.json(foundUser)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
 router.put('/:id', (req, res) => {
     db.User.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(updatedUser => {

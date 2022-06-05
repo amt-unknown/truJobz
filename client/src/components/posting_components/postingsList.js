@@ -3,16 +3,14 @@ import { useState, useEffect} from "react"
 
 import Posting from "./posting";
 
-// const PORT = process.env.PORT || 3000
-
 function PostingList(){
     const [postings, setPostings] = useState([])
     
  // This method fetches the records from the database.
     useEffect(() => {
         async function getPostings() {
-            // const response = await fetch(`http://localhost:3000/posting`)
-             const response = await fetch(`/posting/`);
+            const response = await fetch(`http://localhost:3000/posting`)
+            //  const response = await fetch(`/posting/`);
 
         
             if (!response.ok) {
