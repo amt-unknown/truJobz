@@ -25,4 +25,5 @@ module.exports = {
     getDB: function () {
         return _db;
     },
+
 };

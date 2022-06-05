@@ -3,7 +3,8 @@ const router = require("express").Router();
 const db = require("../models");
 const ObjectId = require("mongodb").ObjectId;
 
-router.route("/user").get(function(req, res) {
+router.route("").get(function(req, res
+    ) {
     let db_connect = db.getDB("empolyees");
     db_connect
         .collection("records")
@@ -14,7 +15,7 @@ router.route("/user").get(function(req, res) {
         });
 });
 
-router.route("/user/:id").get(function(req, res) {
+router.route("/:id").get(function(req, res) {
     let db_connect = db.getDB();
     let myquery = {_id: ObjectId(req.params.id)};
     db_connect
@@ -25,16 +26,17 @@ router.route("/user/:id").get(function(req, res) {
         });
 });
 
-router.route("/user/add").post(function(req, response) {
+router.route("/add").post(function(req, res) {
+    console.log(req.body)
     let db_connect = db.getDB();
     let myobj = {
         name: req.body.name,
         position: req.body.position, 
         level: req.body.level,
     };
-    db_connect.collection("records").insertOne(myobj, function(err, res){
+    db_connect.collection("records").insertOne(myobj, function(err, obj){
         if(err) throw err;
-        response.json(res);
+        res.json(obj);
     })
 })
 
