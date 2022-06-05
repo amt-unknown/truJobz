@@ -28,7 +28,7 @@ function LogIn(props){
             console.log(user)
             if(user!==null){
                 props.setUser(user)
-                navigate("/profile")
+                navigate("/")
             } else {
                 navigate('/signup')
             }

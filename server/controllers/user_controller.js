@@ -20,6 +20,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id",(req, res) => {
     db.User.findById(req.params.id)
+        .populate('postings')
         .then(foundUser => {
             res.json(foundUser)
         })
@@ -30,6 +31,7 @@ router.get("/:id",(req, res) => {
 
 router.get("/name/:name", (req, res) =>{
     db.User.findOne({name: req.params.name})
+        .populate('postings')
         .then(foundUser => {
             res.json(foundUser)
         })
