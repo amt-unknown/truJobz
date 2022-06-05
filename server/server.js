@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-app.use(express.static(`${__dirname}/../client/build`));
+// app.use(express.static(`${__dirname}/../client/build`));
 
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ app.listen(PORT, () => {
     console.log('')
 })
 
-const path = require('path')
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-})
+// const path = require('path')
+// app.get('*', (req, res)=>{
+//     res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// })
