@@ -1,9 +1,10 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav"
+// import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
+import './index.css'
  
 // We use Route in order to define the different routes of our application
-import { Route, Routes, Link } from "react-router-dom";
+import {Route, Routes, Link } from "react-router-dom";
 import { useState } from "react";
  
 // We import all the components we need in our app
@@ -12,7 +13,8 @@ import LogIn from "./components/login";
 import Profile from "./components/profile"
 import Signup from "./components/signup"
 import Posting from "./components/posting"
-// import posting from "../../server/models/posting";
+import NavBarComp from "./components/navbarcomp"
+import Landing from "./components/landing"
 
 const App = () => {
   const [user, setUser] = useState({
@@ -55,53 +57,16 @@ const App = () => {
     )
   }
 
-  function LoggedIn(){
-    if(user.name!==""){
-      return(<div>
-        <Nav activkey="/">
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/home">Home</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link >
-              <Link to="/profile">Profile</Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-        <Container>
-          
-        </Container>
-      </div>
-      )
-    } else {
-      return(
-        <Nav activkey="/">
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/signup">Connect Now</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/login">Login</Link>
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-      )
-    }
-  }
-
  return (
    <div className="App">
-      {LoggedIn()}
-     <Routes>
-       <Route exact path="/home" element={<Home renderList={renderList}/>} />
-       <Route path="/profile" element={<Profile user={user} renderList={renderList}/>} />
-       <Route path="/login" element={<LogIn setUser={setUser}/>} />
-       <Route path="/signup" element={<Signup setUser={setUser}/>} />
-     </Routes>
+      <NavBarComp user={user}/>
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route exact path="/home" element={<Home renderList={renderList}/>} />
+        <Route path="/profile" element={<Profile user={user} renderList={renderList}/>} />
+        <Route path="/login" element={<LogIn setUser={setUser}/>} />
+        <Route path="/signup" element={<Signup setUser={setUser}/>} />
+      </Routes>
    </div>
  );
 };

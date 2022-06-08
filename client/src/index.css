@@ -1,0 +1,39 @@
+body {
+    width: auto;
+    min-height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  
+  /* using root to */
+  :root, 
+  body,
+  html {
+    background-color: #e1f4fc;
+    box-sizing: border-box;
+  
+  }
+  
+  div,
+  h1,
+  h2,
+  h3,
+  header,
+  img,
+  li,
+  ul,
+  nav,
+  p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+  }
