@@ -3,14 +3,14 @@ import { useState, useEffect} from "react"
 
 import Posting from "./posting";
 
-function PostingList(){
+function Home(props){
     const [postings, setPostings] = useState([])
     
  // This method fetches the records from the database.
     useEffect(() => {
         async function getPostings() {
-            // const response = await fetch(`http://localhost:3000/posting`)
-             const response = await fetch(`/posting/`)
+            const response = await fetch(`http://localhost:3000/posting`)
+            //  const response = await fetch(`/posting/`)
 
         
             if (!response.ok) {
@@ -28,23 +28,11 @@ function PostingList(){
     }
     )
 
-
-    // This method will map out the records on the table
- function postingList() {
-   return postings.map((posting) => {
-     return (
-       <Posting
-         posting={posting}
-         key={posting._id}
-       />
-     );
-   });
- }
     return(
         <div className="jobPostings">
-            {postingList()}
+            {props.renderList(postings)}
         </div>
     )
 }
 
-export default PostingList
+export default Home

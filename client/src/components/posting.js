@@ -9,6 +9,8 @@ function Posting(props) {
     function earnings(){
         return `Earn up to $${props.posting.salary.maxSalary}${props.posting.salary.salaryType==="Hourly"?'/hr':'/yr'}!!`
     }
+
+    
     
     return(
         <Card>

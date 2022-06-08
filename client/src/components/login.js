@@ -21,14 +21,14 @@ function LogIn(props){
     async function handleSubmit(){
         if(form.name){
             console.log("Fetching")
-            // const response = await fetch(`http://localhost:3000/user/name/${form.name}`)
-             const response = await fetch(`/user/name/${form.name}`);
+            const response = await fetch(`http://localhost:3000/user/name/${form.name}`)
+            //  const response = await fetch(`/user/name/${form.name}`);
             console.log("Fetched")
             let user = await response.json()
             console.log(user)
             if(user!==null){
                 props.setUser(user)
-                navigate("/")
+                navigate("/home")
             } else {
                 navigate('/signup')
             }

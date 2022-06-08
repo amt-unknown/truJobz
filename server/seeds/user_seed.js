@@ -6,7 +6,7 @@ module.exports = [
         info: "Likes to paint"
     },
     {
-        name: 'Michael', 
+        name: 'Mikel', 
         title: 'Bootcamp Instructor', 
         company: 'UC Long Beach', 
         info: "Has a bird"

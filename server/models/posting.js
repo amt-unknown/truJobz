@@ -23,6 +23,11 @@ const postingSchema = new mongoose.Schema(
     {
         title: { type: String, require: true},
         company: { type: String},
+        companyImg: {type: String},
+        jobField: {
+            type: String,
+            enum: ["Engineering", "Software Development", "Culinary", "Retail", "Business", "Education", "Government"]
+        },
         salary: {type: salary, default: {}},
         info: {type: String},
         owner: {

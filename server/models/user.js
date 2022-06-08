@@ -8,7 +8,9 @@ const userSchema = new mongoose.Schema(
         name: { type: String, require: true},
         title: { type: String },
         company: { type: String},
-        info: {type: String}
+        info: {type: String},
+        profileImg: {type: String},
+        lastLogin: {type: Date}
     },{
         toJSON: {virtuals: true}
     }
