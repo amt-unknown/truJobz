@@ -62,7 +62,7 @@ const App = () => {
       <NavBarComp user={user}/>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route exact path="/home" element={<Home renderList={renderList}/>} />
+        <Route exact path="/home" element={<Home user={user} renderList={renderList}/>} />
         <Route path="/profile" element={<Profile user={user} renderList={renderList}/>} />
         <Route path="/login" element={<LogIn setUser={setUser}/>} />
         <Route path="/signup" element={<Signup setUser={setUser}/>} />

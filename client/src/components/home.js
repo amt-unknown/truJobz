@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect} from "react"
 import { Container } from "react-bootstrap";
+import { Avatar } from '@mui/material'
 
 import Posting from "./posting";
 
@@ -30,11 +31,19 @@ function Home(props){
     )
 
     return(
-        <div className="jobPostings" style={{width: '85%'}}>
-            <Container>
-                {props.renderList(postings)}
+            <Container style={{width: '85%'}}>
+                <div className="sidebar">
+                    <img src=" " alt="" />
+                    <Avatar />
+                    <h2> {props.user.name}</h2>
+                    <h3>{props.user.title}</h3>
+                </div>
+                <br/>
+                <div className="jobPostings" >
+                    <h3>Your Posts</h3>
+                    {props.renderList(postings)}
+                </div>
             </Container>
-        </div>
     )
 }
 
