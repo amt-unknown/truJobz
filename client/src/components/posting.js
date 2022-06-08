@@ -1,6 +1,5 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
+import { Card, Button } from 'react-bootstrap'
 
 function Posting(props) {
     // console.log(props.posting.owner.name)
@@ -13,12 +12,12 @@ function Posting(props) {
     
     
     return(
-        <Card>
+        <Card style={{width:'18rem'}}>
             <Card.Body>
                 <Card.Title>
                     {props.posting.title + " at " + props.posting.company}
                 </Card.Title>
-                <Card.Subtitle>
+                <Card.Subtitle calssName="mb-2 text-muted">
                     {"Posted By: " + props.posting.owner.name}
                 </Card.Subtitle>
                 <Card.Text>

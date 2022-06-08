@@ -1,6 +1,6 @@
 import React from "react";
 // import Nav from "react-bootstrap/Nav"
-import Container from "react-bootstrap/Container"
+// import Container from "react-bootstrap/Container"
 import './index.css'
  
 // We use Route in order to define the different routes of our application
@@ -58,7 +58,7 @@ const App = () => {
   }
 
  return (
-   <div className="App">
+   <div className="App" >
       <NavBarComp user={user}/>
       <Routes>
         <Route path='/' element={<Landing />} />

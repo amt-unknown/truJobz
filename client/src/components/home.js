@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect} from "react"
+import { Container } from "react-bootstrap";
 
 import Posting from "./posting";
 
@@ -29,8 +30,10 @@ function Home(props){
     )
 
     return(
-        <div className="jobPostings">
-            {props.renderList(postings)}
+        <div className="jobPostings" style={{width: '85%'}}>
+            <Container>
+                {props.renderList(postings)}
+            </Container>
         </div>
     )
 }
