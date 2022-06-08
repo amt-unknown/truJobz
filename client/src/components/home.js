@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect} from "react"
-import { Container } from "react-bootstrap";
+import { Container, Button} from "react-bootstrap";
 import { Avatar } from '@mui/material'
+import { Link } from "react-router-dom"
 
 import Posting from "./posting";
 
@@ -37,12 +38,14 @@ function Home(props){
                     <Avatar />
                     <h2> {props.user.name}</h2>
                     <h3>{props.user.title}</h3>
+                    <Link to="/createpost"><Button>Create a Post</Button></Link>
                 </div>
-                <br/>
-                <div className="jobPostings" >
-                    <h3>Your Posts</h3>
+                <hr/>
+                <h3>New Posts</h3>
+                <div className="jobPostings" style={{display: "flex"}}>
                     {props.renderList(postings)}
                 </div>
+                <br/>
             </Container>
     )
 }

@@ -17,16 +17,16 @@ function Posting(props) {
                 <Card.Title>
                     {props.posting.title + " at " + props.posting.company}
                 </Card.Title>
-                <Card.Subtitle calssName="mb-2 text-muted">
+                {/* <Card.Subtitle className="mb-2 text-muted">
                     {"Posted By: " + props.posting.owner.name}
-                </Card.Subtitle>
+                </Card.Subtitle> */}
                 <Card.Text>
                     {props.posting.info}
                 </Card.Text>
                 <Card.Text>
                     {earnings()}
                 </Card.Text>
-                <Button variant="primary">Apply Now!</Button>
+                {/* <Button variant="primary">Apply Now!</Button> */}
             </Card.Body>
         </Card>
     )
