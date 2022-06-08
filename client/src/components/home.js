@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect} from "react"
-
+import { Avatar } from '@mui/material';
 import Posting from "./posting";
 
 function Home(props){
+
     const [postings, setPostings] = useState([])
     
  // This method fetches the records from the database.
@@ -28,10 +29,17 @@ function Home(props){
     }
     )
 
+    
     return(
-        <div className="jobPostings">
+        <><div className="jobPostings">
             {props.renderList(postings)}
         </div>
+        <div className='sidebar'>
+                <img src=" " alt="" />
+                <Avatar />
+                <h2> User </h2>
+                <h3>user.email@user.com</h3>
+         </div></>
     )
 }
 
