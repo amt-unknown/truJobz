@@ -48,6 +48,9 @@ router.put('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+
+    //FIX UNIQUE USER CREATION
+    
     db.User.create(req.body)
         .then(() => {
             res.redirect('/user')

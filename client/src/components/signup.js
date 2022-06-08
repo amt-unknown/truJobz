@@ -22,8 +22,8 @@ function Signup(props){
     async function handleSubmit(){
         if(form.name){
             console.log("Fetching")
-            const response = await fetch(`http://localhost:3000/user/`,{
-            //  const response = await fetch(`/user/`, {
+            // const response = await fetch(`http://localhost:3000/user/`,{
+             const response = await fetch(`/user/`, {
                 method: 'POST', 
                 headers: {
                     'Content-type': 'application/json'
