@@ -17,4 +17,18 @@ router.post('/', (req, res) => {
         .then(console.log("New Post successful"))
 })
 
+router.put('/:id', (req, res) => {
+    db.Posting.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .then(updatedUser => {
+            res.redirect(`/users/${req.params.id}`)
+        })
+})
+
+router.delete('/:id',(req, res) => {
+    db.Posting.findByIdAndDelete(req.params.id)
+        .then(res => {
+            console.log('User deleted')
+        })
+});
+
 module.exports = router;
