@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useEffect} from "react"
-import { Avatar } from '@mui/material';
+import { Container } from "react-bootstrap/lib/tab";
+import styled from 'style-components'
+import Leftside from './leftside.js'
+import Main from './main.js'
 import Posting from "./posting";
 
 function Home(props){
@@ -31,16 +34,34 @@ function Home(props){
 
     
     return(
-        <><div className="jobPostings">
-            {props.renderList(postings)}
-        </div>
-        <div className='sidebar'>
-                <img src=" " alt="" />
-                <Avatar />
-                <h2> User </h2>
-                <h3>user.email@user.com</h3>
-         </div></>
+        <>
+            <div className="jobPostings">
+                {props.renderList(postings)}
+            </div>
+            <Container>
+                <Layout>
+                    <Leftside/>
+                    <Main/>
+                </Layout>
+            </Container></>
     )
 }
+
+/* Using grid template to create user box and feed as columns */ 
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas: 'leftside main';
+  grid-template-columns: minmax(0, 5fr) minmax(0,15fr);
+  column-gap: 30px;
+  row-gap: 25px;
+  grid-template-rows: auto;
+  margin: 30px 0;
+  @media (max-width: 768px) {
+     display: flex;
+     flex-direction: column;
+     padding: 0 5px;
+  }
+`;
+
 
 export default Home
