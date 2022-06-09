@@ -4,7 +4,7 @@ import {Navbar, Nav, Container} from 'react-bootstrap'
 function NavBar(){
 <Navbar bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="#home">TRUEJOBZ</Navbar.Brand>
                 <Nav className="me-auto">
                 <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                 <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
