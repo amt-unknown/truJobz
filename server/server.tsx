@@ -1,10 +1,13 @@
-const express = require("express");
-const app = express();
+import express, {Express, Request, Response} from "express";
+import dotenv from 'dotenv'
 const cors = require("cors");
+
+dotenv.config
+
+const app: Express = express();
 
 app.use(express.static(`${__dirname}/../client/build`));
 
-require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
@@ -26,6 +29,6 @@ app.listen(PORT, () => {
 })
 
 const path = require('path')
-app.get('*', (req, res)=>{
+app.get('*', (req: any, res: any)=>{
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })

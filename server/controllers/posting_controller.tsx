@@ -1,4 +1,6 @@
-const router = require("express").Router();
+import express, {Request, Response} from "express"
+
+const router = express.Router();
 const res = require("express/lib/response");
 const db = require("../models");
 const ObjectId = require("mongodb").ObjectId;
@@ -6,27 +8,27 @@ const ObjectId = require("mongodb").ObjectId;
 
 const User = require('../models/user.js')
 
-router.get("/", (req, res) => {
+router.get("/", (req: Request, res: Response) => {
     db.Posting.find()
         .populate('owner')
-        .then(postings => res.json(postings))
+        .then((postings:any) => res.json(postings))
 })
 
-router.post('/', (req, res) => {
+router.post('/', (req: Request, _res: Response) => {
     db.Posting.create(req.body)
         .then(console.log("New Post successful"))
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', (req: Request, res: Response) => {
     db.Posting.findByIdAndUpdate(req.params.id, req.body, {new: true})
-        .then(updatedUser => {
+        .then((_updatedUser: any) => {
             res.redirect(`/users/${req.params.id}`)
         })
 })
 
-router.delete('/:id',(req, res) => {
+router.delete('/:id',(req: Request, _res: Response) => {
     db.Posting.findByIdAndDelete(req.params.id)
-        .then(res => {
+        .then((_res:any) => {
             console.log('User deleted')
         })
 });
